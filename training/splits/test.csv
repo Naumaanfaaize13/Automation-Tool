@@ -1,0 +1,125 @@
+path,label,group,vehicle_type,day_night,camera_id,plate_source,quality
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/376922__plate__day__car__correct__4765253a.jpg,TN31BW4812,495,car,day,cam_4732e0e5,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/376933__plate__day__car__correct__e86c1f63.jpg,TN75BH7284,494,car,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377040__plate__day__bike__correct__fc13d44c.jpg,PY01DF5367,480,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377065__plate__day__bike__correct__b4be95fc.jpg,PY01CX8284,478,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377072__plate__day__bike__correct__34df801b.jpg,PY01CB7342,477,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377082__plate__day__bike__correct__cfcb5ea2.jpg,PY01AU1428,475,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378145__plate__night__bike__correct__40704783.jpg,PY01DD2260,465,bike,night,cam_debd913a,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378800__plate__night__car__correct__d7b14d45.jpg,TN19AS5376,450,car,night,cam_3dca4fa1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378802__plate__night__bike__correct__5de35448.jpg,PY05N5126,449,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378808__plate__night__bike__correct__935b6b7a.jpg,PY01CR1476,445,bike,night,cam_c27f742d,hiconf,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378813__plate__night__car__correct__c5d1f8a9.jpg,TN19AL3277,444,car,night,cam_3dca4fa1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378819__plate__night__bike__correct__9f432358.jpg,PY05R5447,443,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378825__plate__night__bike__correct__48b33889.jpg,PY01CS8227,440,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378827__plate__night__bike__correct__596ac05f.jpg,PY05A1508,438,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378833__plate__night__bike__correct__f6a86139.jpg,PY01CZ0537,433,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378844__plate__night__bike__correct__4b5b6817.jpg,PY01DE9419,430,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378867__plate__night__car__correct__02bb954b.jpg,TN20DL2247,425,car,night,cam_a4534ea2,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378877__plate__night__car__correct__96df4075.jpg,PY01CA6889,424,car,night,cam_3dca4fa1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378882__plate__night__bike__correct__134cda46.jpg,PY01DC4369,422,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378895__plate__night__bike__correct__b5f15f31.jpg,TN91F6229,416,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378910__plate__night__bike__correct__d29f17f2.jpg,PY01R7717,412,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378922__plate__night__car__correct__338e5aa0.jpg,TN04AW1765,407,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378927__plate__night__car__correct__746c80bc.jpg,PY05T6825,406,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378933__plate__night__bike__correct__42353203.jpg,PY01CG8884,404,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378944__plate__night__bike__correct__03c41f3b.jpg,PY01VD6739,398,bike,night,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378957__plate__night__car__correct__5ff8c10d.jpg,PY01DG8118,393,car,night,cam_debd913a,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378965__plate__night__car__correct__6e80ee06.jpg,TN50AD9110,388,car,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378976__plate__night__car__correct__dc0cfd0a.jpg,TN14AD7724,383,car,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378988__plate__night__car__correct__5fb7a951.jpg,PY01VF2517,382,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378995__plate__night__car__correct__025a2061.jpg,TN91H6715,376,car,night,cam_a4534ea2,parseq,DEGRADED: DARK
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379000__plate__night__car__correct__98638b56.jpg,TN11BY7882,374,car,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379002__plate__night__bike__correct__05d42b31.jpg,PY05U2587,372,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379008__plate__night__car__correct__a545c709.jpg,TN07CD8393,368,car,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379019__plate__night__bike__correct__15ad53fd.jpg,TN25AJ0237,364,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379037__plate__night__car__correct__a908bb2e.jpg,HR26CL5302,357,car,night,cam_3dca4fa1,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379064__plate__night__car__correct__a9ff20ec.jpg,TN50BA4923,347,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379070__plate__night__car__correct__cee1d2f9.jpg,TN12AR5730,346,car,night,cam_a4534ea2,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379083__plate__night__car__correct__cd4e53a1.jpg,PY01CB0676,343,car,night,cam_5f7e9219,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379095__plate__night__car__correct__7dd202c2.jpg,TN82AZ7581,339,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379096__plate__night__car__correct__49274158.jpg,TN82K7140,338,car,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379097__plate__night__bike__correct__47507038.jpg,TN82P7267,337,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379109__plate__night__car__correct__4e0e228c.jpg,TN57AL9096,330,car,night,cam_3dca4fa1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379131__plate__night__car__correct__bf7a4f8a.jpg,TN04M6256,327,car,night,cam_1105160e,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379137__plate__night__bike__correct__eb8741a5.jpg,PY02U4491,324,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379143__plate__night__bike__correct__299c4a8e.jpg,PY01DD7519,319,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379151__plate__night__bike__correct__95e8bd43.jpg,TN31BT9196,317,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379165__plate__night__car__correct__a70d4827.jpg,TN34AH3021,309,car,night,cam_5f7e9219,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379169__plate__night__car__correct__d75bd627.jpg,TN82AA7528,307,car,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379173__plate__night__car__correct__9ee38533.jpg,TN51AR2485,305,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379186__plate__night__car__correct__afd0c481.jpg,TN82W6813,303,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379200__plate__night__bike__correct__e26b9a8e.jpg,PY05VF5603,299,bike,night,cam_debd913a,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379217__plate__night__bike__correct__9c9d52d9.jpg,PY01CR4417,292,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379243__plate__night__bike__correct__7616cc4c.jpg,PY01BZ7063,281,bike,night,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379248__plate__night__bike__correct__d2190213.jpg,PY01CP9743,279,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379249__plate__night__bike__correct__402e6efa.jpg,PY01CV3927,278,bike,night,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379257__plate__night__bike__correct__680c895d.jpg,PY01AJ1971,276,bike,night,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379275__plate__night__bike__correct__25586643.jpg,PY05E7566,271,bike,night,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379277__plate__night__bike__correct__58523924.jpg,PY01BH7301,270,bike,night,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379278__plate__night__bike__correct__ed425b4f.jpg,PY01AB3398,269,bike,night,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379301__plate__night__car__correct__aaa04223.jpg,PY01DF0927,262,car,night,cam_ec06f4c5,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379309__plate__night__car__correct__6059e7c8.jpg,TN12T9925,260,car,night,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379315__plate__day__bike__correct__381fdec7.jpg,PY01CF0303,257,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379325__plate__day__bike__correct__25bfb8c5.jpg,PY01CL9220,254,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379336__plate__day__bike__correct__5905121c.jpg,PY01AJ3872,252,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379371__plate__day__car__correct__13ddf39b.jpg,PY01CQ4995,248,car,day,cam_4732e0e5,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379372__plate__day__bike__correct__ae9e6105.jpg,PY01VA3398,247,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379377__plate__day__bike__correct__02a0e80d.jpg,PY01CV8982,246,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379414__plate__day__bike__correct__7476e5c1.jpg,PY01CX3332,235,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379437__plate__day__bike__correct__58ab9f7e.jpg,PB01CE4871,233,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379448__plate__day__bike__correct__c9f9ae07.jpg,PY01CR7426,232,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379451__plate__day__bike__correct__ddeb85a0.jpg,PY01DC7309,231,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379456__plate__day__bike__correct__8ffcf2ed.jpg,PY01CA3081,230,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379460__plate__day__bike__correct__9157054a.jpg,PY01CA3091,229,bike,day,cam_cb9360e1,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379474__plate__day__bike__correct__0936a8b7.jpg,PY01CS9039,226,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379480__plate__day__bike__correct__91a237e3.jpg,PY01CP6450,224,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379486__plate__day__bike__correct__ea8e77af.jpg,PY01CN4636,223,bike,day,cam_debd913a,hiconf,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379507__plate__day__bike__correct__6afa58ba.jpg,PY01BZ0277,221,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379509__plate__day__bike__correct__3573cfd4.jpg,TN12BW8121,220,bike,day,cam_5f7e9219,hiconf,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379531__plate__day__bike__correct__3fad5bd6.jpg,PY01AT9065,217,bike,day,cam_debd913a,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379545__plate__day__bike__correct__535dd808.jpg,TN11BH9248,215,bike,day,cam_c27f742d,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379556__plate__day__bike__correct__bd463c81.jpg,PY01DC7276,213,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379662__plate__day__car__correct__09ff46e4.jpg,PY01BV7663,194,car,day,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379747__plate__day__bike__correct__313798d0.jpg,PY052606,185,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379763__plate__day__bike__correct__84acfc11.jpg,PY01DD3414,181,bike,day,cam_debd913a,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379800__plate__day__bike__correct__01972b02.jpg,PY01CU2251,174,bike,day,cam_debd913a,hiconf,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379811__plate__day__bike__correct__c654691b.jpg,TN96J9489,172,bike,day,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379850__plate__day__car__correct__591dff7e.jpg,TN31BS4073,167,car,day,cam_a4534ea2,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379869__plate__day__bike__correct__41034bab.jpg,PY01BV6531,163,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379950__plate__day__bike__correct__d4f4ede6.jpg,PY05Y7956,154,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379966__plate__day__bike__correct__231c6e3b.jpg,PY01AY7256,152,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380026__plate__day__bike__correct__d920408a.jpg,PY01BQ6435,142,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380030__plate__day__car__correct__0f710796.jpg,TN72AW1786,141,car,day,cam_a4534ea2,hiconf,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380170__plate__day__car__correct__f42818dc.jpg,PY01CH5600,133,car,day,cam_3dca4fa1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380225__plate__day__bike__correct__a886f337.jpg,PY01DB1577,125,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380243__plate__day__car__correct__a6a1969b.jpg,PY01K5959,123,car,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380248__plate__day__bike__correct__1b98f573.jpg,PY01AX5731,122,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380266__plate__day__bike__correct__13026c33.jpg,PY05C2414,119,bike,day,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380333__plate__day__bike__correct__321c13e3.jpg,PY01CB1310,110,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380340__plate__day__bike__correct__c7098ada.jpg,PY01CY4167,109,bike,day,cam_debd913a,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380370__plate__day__bike__correct__bc644ede.jpg,PY01CL2796,106,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380453__plate__day__bike__correct__8737c694.jpg,PY01AZ0041,100,bike,day,cam_c27f742d,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380591__plate__day__bike__correct__284ce8d4.jpg,PY01CY2840,84,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380616__plate__day__bike__correct__bd471ae3.jpg,PY01DE3206,81,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380619__plate__day__bike__correct__32a8e966.jpg,TN14E1398,80,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380624__plate__day__bike__correct__69082d4a.jpg,PY01CQ0294,79,bike,day,cam_debd913a,parseq,DEGRADED: DARK
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380629__plate__day__car__correct__1f2b5d40.jpg,PY01DB3057,78,car,day,cam_a4534ea2,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380655__plate__day__bike__correct__0f2a67d6.jpg,PY05K5297,77,bike,day,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380671__plate__day__bike__correct__c09d1b7b.jpg,PY09D8211,74,bike,day,cam_5f7e9219,finalize,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380694__plate__day__bike__correct__a650acc2.jpg,PY01CH0639,71,bike,day,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380704__plate__day__bike__correct__22030314.jpg,TN91AB9420,69,bike,day,cam_5f7e9219,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/384952__plate__night__car__correct__0540fcc6.jpg,TN18BS6187,66,car,night,cam_1105160e,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/385756__plate__day__bike__correct__b56ad6fc.jpg,PY01DF0887,62,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/386563__plate__day__car__correct__90e306ac.jpg,PY01BS3628,59,car,day,cam_c27f742d,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/387649__plate__day__car__correct__c9687321.jpg,PY01CL9858,58,car,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/388406__plate__day__car__correct__99d60394.jpg,TN10AX2117,56,car,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/390499__plate__night__bike__correct__a25d2b67.jpg,TN31CM3611,49,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/390777__plate__night__car__correct__1c0cf236.jpg,TN31CC2171,46,car,night,cam_a4534ea2,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/391212__plate__night__bike__correct__abc0eb69.jpg,PY05VA8791,44,bike,night,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/392416__plate__day__bike__correct__db887053.jpg,PY01CX5071,41,bike,day,cam_cb9360e1,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/393310__plate__day__car__correct__d992c2dd.jpg,PY05Q5424,36,car,day,cam_4732e0e5,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/394544__plate__day__bike__correct__8d3fa6fa.jpg,PY01DE5770,32,bike,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/396346__plate__day__auto__correct__b65b7ce3.jpg,KL58Q3118,25,auto,day,cam_debd913a,parseq,GOOD
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/396751__plate__day__car__correct__6135bd64.jpg,PY05VH7938,21,car,day,cam_4732e0e5,parseq,DEGRADED: TILTED
+/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/398461__plate__day__truck__correct__0bc2e901.jpg,PY01BG8578,8,truck,day,cam_ec06f4c5,parseq,DEGRADED: DARK

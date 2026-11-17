@@ -1,0 +1,108 @@
+{
+  "manifest": "/home/naumaan/Downloads/traxflow_local_images_2026-11-10/manifest.csv",
+  "rows": 500,
+  "labelled": 498,
+  "missing_labels": [
+    "images/IOCL-001/378997__plate__night__car__correct__c462c6aa.jpg",
+    "images/IOCL-001/378831__plate__night__bike__correct__a2f71f01.jpg"
+  ],
+  "unreadable": [],
+  "duplicate_plate_numbers": {
+    "TN10CC5017": 2,
+    "TN06AJ1210": 2
+  },
+  "near_duplicate_pairs": [],
+  "groups": 496,
+  "splits": {
+    "train": 225,
+    "val": 75,
+    "calib": 74,
+    "test": 124
+  },
+  "seed": 20261111,
+  "incorrect_labels": "not detectable automatically: every row is audited=yes, verdict=correct",
+  "invalid_format_labels": [],
+  "height_px": {
+    "min": 146,
+    "median": 393,
+    "max": 828
+  },
+  "width_px": {
+    "min": 640,
+    "median": 640,
+    "max": 640
+  },
+  "two_line_shape": 323,
+  "vehicle_type": {
+    "car": 176,
+    "bike": 315,
+    "truck": 3,
+    "auto": 2,
+    "bus": 2
+  },
+  "day_night": {
+    "night": 239,
+    "day": 259
+  },
+  "camera": {
+    "cam_1105160e": 30,
+    "cam_5f7e9219": 162,
+    "cam_a4534ea2": 50,
+    "cam_3dca4fa1": 29,
+    "cam_ec06f4c5": 5,
+    "cam_4732e0e5": 15,
+    "cam_c27f742d": 45,
+    "cam_debd913a": 128,
+    "cam_cb9360e1": 34
+  },
+  "label_source": {
+    "parseq": 431,
+    "finalize": 57,
+    "hiconf": 10
+  },
+  "quality": {
+    "DEGRADED": 60,
+    "GOOD": 438
+  },
+  "quality_flags": {
+    "TILTED": 48,
+    "DARK": 22,
+    "NOISY": 1
+  },
+  "format": {
+    "STANDARD": 498
+  },
+  "state": {
+    "PY": 329,
+    "TN": 161,
+    "KL": 1,
+    "PB": 3,
+    "UK": 1,
+    "AP": 1,
+    "HR": 1,
+    "DL": 1
+  },
+  "split_by_vehicle_type": {
+    "train": {
+      "bike": 141,
+      "car": 79,
+      "auto": 1,
+      "truck": 2,
+      "bus": 2
+    },
+    "val": {
+      "car": 27,
+      "bike": 48
+    },
+    "calib": {
+      "car": 27,
+      "bike": 47
+    },
+    "test": {
+      "truck": 1,
+      "car": 43,
+      "auto": 1,
+      "bike": 79
+    }
+  }
+}

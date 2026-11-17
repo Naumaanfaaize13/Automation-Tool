@@ -1,0 +1,43 @@
+{
+  "all_images": {
+    "n": 124,
+    "exact": 81,
+    "exact_pct": 65.32,
+    "cer_pct": 9.8,
+    "char_acc_pct": 90.2,
+    "auto_success": 80,
+    "auto_precision_pct": 91.25,
+    "coverage_pct": 64.52,
+    "false_acceptance": 7,
+    "false_acceptance_pct": 5.65,
+    "manual_review_pct": 35.48,
+    "false_rejection": 8,
+    "false_rejection_pct_of_correct": 9.88
+  },
+  "without_confirmed_label_mismatches": {
+    "n": 121,
+    "exact": 81,
+    "exact_pct": 66.94,
+    "cer_pct": 8.45,
+    "char_acc_pct": 91.55,
+    "auto_success": 79,
+    "auto_precision_pct": 92.41,
+    "coverage_pct": 65.29,
+    "false_acceptance": 6,
+    "false_acceptance_pct": 4.96,
+    "manual_review_pct": 34.71,
+    "false_rejection": 8,
+    "false_rejection_pct_of_correct": 9.88
+  },
+  "latency_s": {
+    "mean": 0.394,
+    "median": 0.24,
+    "p95": 0.84
+  },
+  "info": {
+    "weights": "/home/naumaan/Documents/Awiros-ANPR-OCR/model.safetensors",
+    "inference": "static+oneDNN",
+    "hybrid": null,
+    "ml_verifier": true
+  }
+}

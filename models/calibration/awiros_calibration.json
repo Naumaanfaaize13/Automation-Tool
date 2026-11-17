@@ -1,0 +1,17 @@
+{
+  "temperature": 1.5,
+  "plate_w": [
+    1.4554696375488203,
+    0.43777254928486076,
+    0.3669611019994872
+  ],
+  "plate_b": 2.308525267585797,
+  "fitted_on": "calib split (training/splits/calib.csv); thresholds on calib+val",
+  "weights": "/home/naumaan/Documents/Vehicle_Number_Detection/models/awiros_finetuned_head/candidate_head.safetensors",
+  "weights_sha256": "339cd7878356a9505bf44f4d1cd5047d683beaf6b2bea2a3e4c3490e2a309b60",
+  "auto_threshold": 0.9,
+  "min_char_p": 0.8,
+  "tta_gate": 0.9,
+  "tta_variants": [],
+  "region_check": false
+}

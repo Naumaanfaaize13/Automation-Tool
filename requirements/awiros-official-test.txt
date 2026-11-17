@@ -1,0 +1,4 @@
+# Only to run Awiros' own test.py (it imports ppocr.postprocess). Not needed by the server.
+shapely
+pyclipper
+scikit-image

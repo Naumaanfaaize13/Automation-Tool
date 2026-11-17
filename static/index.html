@@ -1,0 +1,1626 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PlateVision</title>
+  <style>
+    :root {
+      --bg: #0f1424;
+      --panel: #1a2238;
+      --panel2: #212b45;
+      --line: #2c3756;
+      --text: #e6eaf3;
+      --muted: #8c97b2;
+      --cyan: #22d3ee;
+      --cyan-soft: rgba(34, 211, 238, .12);
+      --green: #22c55e;
+      --amber: #f5a524;
+      --red: #ef4444;
+      --accent: #3b82f6;
+      --shadow: 0 6px 24px rgba(0, 0, 0, .35);
+    }
+
+    :root[data-theme="light"] {
+      --bg: #f3f5fa;
+      --panel: #ffffff;
+      --panel2: #eef2f8;
+      --line: #dbe1ec;
+      --text: #18213a;
+      --muted: #5f6b85;
+      --cyan: #0891b2;
+      --cyan-soft: rgba(8, 145, 178, .10);
+      --green: #16a34a;
+      --amber: #c27803;
+      --red: #dc2626;
+      --accent: #2563eb;
+      --shadow: 0 6px 20px rgba(20, 30, 60, .10);
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 14px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif
+    }
+
+    body {
+      overflow-x: hidden
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+      color: inherit
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 2px
+    }
+
+    .wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 16px
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: .3px
+    }
+
+    .logo .mark {
+      width: 34px;
+      height: 22px;
+      border: 2px solid var(--cyan);
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      font: 700 10px/1 ui-monospace, Consolas, monospace;
+      color: var(--cyan)
+    }
+
+    .sub {
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .spacer {
+      flex: 1
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 10px;
+      color: var(--muted);
+      font-size: 12px
+    }
+
+    .btn {
+      border: 1px solid var(--line);
+      background: var(--panel2);
+      border-radius: 8px;
+      padding: 8px 14px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap
+    }
+
+    .btn:hover {
+      border-color: var(--cyan)
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff;
+      font-weight: 600
+    }
+
+    .btn.primary:disabled {
+      opacity: .5;
+      cursor: not-allowed
+    }
+
+    .btn.danger {
+      color: var(--red)
+    }
+
+    .btn.danger:hover {
+      border-color: var(--red)
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: var(--shadow)
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr);
+      gap: 16px;
+      margin-bottom: 16px
+    }
+
+    @media (max-width:900px) {
+      .grid {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .drop {
+      border: 2px dashed var(--line);
+      border-radius: 10px;
+      padding: 22px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color .15s, background .15s
+    }
+
+    .drop:hover,
+    .drop.over {
+      border-color: var(--cyan);
+      background: var(--cyan-soft)
+    }
+
+    .drop strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 4px
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      flex-wrap: wrap
+    }
+
+    .sel {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .sel .warn {
+      color: var(--amber);
+      font-weight: 600
+    }
+
+    .thumbs {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      max-height: 110px;
+      overflow: hidden
+    }
+
+    .thumbs img {
+      height: 48px;
+      width: 64px;
+      object-fit: cover;
+      border-radius: 5px;
+      border: 1px solid var(--line)
+    }
+
+    .thumbs .more {
+      height: 48px;
+      min-width: 64px;
+      display: grid;
+      place-items: center;
+      border-radius: 5px;
+      background: var(--panel2);
+      color: var(--muted);
+      font-size: 12px;
+      padding: 0 6px
+    }
+
+    .slider {
+      margin: 12px 0
+    }
+
+    .slider label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      margin-bottom: 4px
+    }
+
+    .slider output {
+      font-family: ui-monospace, Consolas, monospace;
+      color: var(--cyan)
+    }
+
+    input[type=range] {
+      width: 100%;
+      accent-color: var(--cyan)
+    }
+
+    .progress {
+      margin-top: 12px;
+      display: none
+    }
+
+    .progress.on {
+      display: block
+    }
+
+    .bar {
+      height: 8px;
+      background: var(--panel2);
+      border-radius: 99px;
+      overflow: hidden
+    }
+
+    .bar>div {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--cyan));
+      transition: width .3s
+    }
+
+    .ptext {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 13px;
+      margin-top: 6px
+    }
+
+    .ptext .cur {
+      color: var(--muted);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100%
+    }
+
+    a.link {
+      color: var(--cyan);
+      cursor: pointer;
+      text-decoration: underline
+    }
+
+    .tabs {
+      display: inline-flex;
+      background: var(--panel2);
+      border-radius: 8px;
+      padding: 3px;
+      margin-bottom: 12px
+    }
+
+    .tabs button {
+      border: 0;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: var(--muted)
+    }
+
+    .tabs button[aria-selected=true] {
+      background: var(--panel);
+      color: var(--text);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, .25)
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px
+    }
+
+    .card {
+      background: var(--panel2);
+      border-radius: 10px;
+      padding: 12px
+    }
+
+    .card .k {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--muted)
+    }
+
+    .card .v {
+      font-size: 24px;
+      font-weight: 700;
+      margin-top: 2px
+    }
+
+    .overall {
+      grid-column: 1/-1;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap
+    }
+
+    .overall .v {
+      font-size: 40px;
+      line-height: 1
+    }
+
+    .meter {
+      flex: 1;
+      min-width: 160px
+    }
+
+    .meter .bar {
+      height: 12px
+    }
+
+    .meter small {
+      color: var(--muted);
+      display: block;
+      margin-top: 6px
+    }
+
+    @media (max-width:640px) {
+      .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 12px
+    }
+
+    .toolbar select,
+    .toolbar input[type=search] {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 7px 10px
+    }
+
+    .toolbar input[type=search] {
+      min-width: 0;
+      flex: 1 1 200px
+    }
+
+    .pills {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 999px;
+      padding: 5px 12px;
+      cursor: pointer;
+      color: var(--muted)
+    }
+
+    .pill[aria-pressed=true] {
+      background: var(--cyan-soft);
+      border-color: var(--cyan);
+      color: var(--cyan)
+    }
+
+    .tablewrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 820px
+    }
+
+    th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 12px;
+      background: var(--panel2);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap
+    }
+
+    td {
+      padding: 8px 12px;
+      border-bottom: 1px solid var(--line);
+      vertical-align: middle
+    }
+
+    tbody tr {
+      cursor: pointer
+    }
+
+    tbody tr:hover {
+      background: var(--cyan-soft)
+    }
+
+    tbody tr:last-child td {
+      border-bottom: 0
+    }
+
+    td.time {
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    td img.veh {
+      height: 48px;
+      max-width: 86px;
+      object-fit: cover;
+      border-radius: 5px;
+      display: block
+    }
+
+    td img.crop {
+      height: 34px;
+      max-width: 140px;
+      object-fit: contain;
+      border-radius: 4px;
+      display: block;
+      background: #000
+    }
+
+    .plate {
+      display: inline-block;
+      font: 700 15px/1 ui-monospace, Consolas, "Courier New", monospace;
+      letter-spacing: 1.5px;
+      border: 2px solid var(--cyan);
+      border-radius: 6px;
+      padding: 6px 10px;
+      background: var(--cyan-soft);
+      color: var(--text);
+      cursor: copy;
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle
+    }
+
+    .plate.empty {
+      border-color: var(--line);
+      color: var(--muted);
+      cursor: default;
+      background: transparent
+    }
+
+    .conf {
+      min-width: 110px
+    }
+
+    .conf .n {
+      font-weight: 600
+    }
+
+    .conf .bar {
+      height: 5px;
+      margin-top: 4px
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      white-space: nowrap
+    }
+
+    .b-SUCCESS {
+      background: rgba(34, 197, 94, .15);
+      color: var(--green)
+    }
+
+    .b-VERIFIED {
+      background: rgba(34, 197, 94, .22);
+      color: var(--green);
+      outline: 1px solid rgba(34, 197, 94, .5)
+    }
+
+    .tune-log {
+      font: 12px ui-monospace, monospace;
+      white-space: pre-wrap;
+      max-height: 180px;
+      overflow: auto;
+      background: rgba(0, 0, 0, .2);
+      padding: 8px;
+      border-radius: 6px;
+      margin: 8px 0 0
+    }
+
+    .b-REVIEW {
+      background: rgba(245, 165, 36, .15);
+      color: var(--amber)
+    }
+
+    .b-NO {
+      background: rgba(148, 163, 184, .15);
+      color: var(--muted)
+    }
+
+    .b-REJECT {
+      background: rgba(239, 68, 68, .15);
+      color: var(--red)
+    }
+
+    .plate.suggest {
+      border-style: dashed;
+      border-color: var(--amber);
+      background: transparent
+    }
+
+    .plate.rejected {
+      border-color: var(--line);
+      color: var(--muted);
+      text-decoration: line-through;
+      background: transparent;
+      cursor: default
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle
+    }
+
+    .tag.edit {
+      background: rgba(59, 130, 246, .18);
+      color: var(--accent)
+    }
+
+    .tag.mr {
+      background: rgba(245, 165, 36, .15);
+      color: var(--amber)
+    }
+
+    .check {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      font-size: 13px;
+      margin: 4px 0 12px;
+      cursor: pointer
+    }
+
+    .check input {
+      margin-top: 3px;
+      accent-color: var(--cyan)
+    }
+
+    .imgs3 {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-bottom: 6px
+    }
+
+    .imgs3 figure {
+      margin: 0;
+      background: var(--panel2);
+      border-radius: 8px;
+      padding: 8px
+    }
+
+    .imgs3 figcaption {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      color: var(--muted);
+      margin-bottom: 6px
+    }
+
+    .imgs3 img {
+      width: 100%;
+      border-radius: 6px;
+      display: block;
+      background: #000;
+      object-fit: contain
+    }
+
+    .imgs3 .side {
+      display: flex;
+      flex-direction: column;
+      gap: 10px
+    }
+
+    .imgs3 .side img {
+      max-height: 120px
+    }
+
+    @media (max-width:640px) {
+      .imgs3 {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    .sec {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px
+    }
+
+    .sec h3 {
+      margin: 0 0 8px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .7px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .chars {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      margin: 4px 0
+    }
+
+    .chars span {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 30px;
+      padding: 4px 3px;
+      border-radius: 5px;
+      font: 700 15px/1.1 ui-monospace, Consolas, monospace;
+      border: 1px solid var(--line)
+    }
+
+    .chars small {
+      font: 500 10px/1.2 system-ui, sans-serif;
+      color: var(--muted);
+      margin-top: 2px
+    }
+
+    .reasons {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .reasons span {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--panel2);
+      border: 1px solid var(--line)
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px
+    }
+
+    .form input {
+      background: var(--panel2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      min-width: 0
+    }
+
+    .form input#rv-text {
+      font: 700 15px ui-monospace, Consolas, monospace;
+      letter-spacing: 1px;
+      text-transform: uppercase
+    }
+
+    @media (max-width:640px) {
+      .form {
+        grid-template-columns: minmax(0, 1fr)
+      }
+    }
+
+    .audit {
+      font-size: 12px;
+      color: var(--muted);
+      margin: 8px 0 0;
+      padding-left: 18px
+    }
+
+    .audit li {
+      margin: 3px 0
+    }
+
+    td.file {
+      color: var(--muted);
+      font-size: 13px;
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap
+    }
+
+    .empty-row td {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px;
+      cursor: default
+    }
+
+    .pager {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px
+    }
+
+    .pager .btns {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap
+    }
+
+    .pager button {
+      min-width: 34px;
+      padding: 6px 10px
+    }
+
+    .pager button[aria-current=true] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #fff
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(5, 8, 18, .7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 50
+    }
+
+    .modal.on {
+      display: flex
+    }
+
+    .modal .box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      max-width: 860px;
+      width: 100%;
+      max-height: calc(100vh - 32px);
+      overflow: auto;
+      padding: 16px
+    }
+
+    .modal dl {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      gap: 6px 14px;
+      margin: 14px 0 0
+    }
+
+    .modal dt {
+      color: var(--muted)
+    }
+
+    .modal dd {
+      margin: 0;
+      word-break: break-all
+    }
+
+    .toasts {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      z-index: 60;
+      pointer-events: none
+    }
+
+    .toast {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--cyan);
+      border-radius: 8px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow);
+      max-width: 420px;
+      pointer-events: auto
+    }
+
+    .toast.err {
+      border-left-color: var(--red)
+    }
+
+    .toast.warn {
+      border-left-color: var(--amber)
+    }
+
+    .sr {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo"><span class="mark" aria-hidden="true">IND</span>PlateVision</div>
+      <span class="sub">Batch number plate reader · YOLO11 + Awiros ANPR OCR</span>
+      <span class="spacer"></span>
+      <span class="chip" id="mlchip" title="">ML verifier: …</span>
+      <span class="chip" id="device">device: …</span>
+      <button class="btn" id="theme" type="button" aria-label="Toggle light or dark theme">Light theme</button>
+    </header>
+
+    <div class="grid">
+      <section class="panel" aria-labelledby="h-up">
+        <h2 id="h-up">Upload</h2>
+        <div class="drop" id="drop" tabindex="0" role="button"
+          aria-label="Drop images here or press Enter to choose files">
+          <strong>Drop vehicle images here</strong>
+          <span class="sub">or click to choose · jpg, png, bmp, webp · up to <span id="maxn">500</span> at a time</span>
+        </div>
+        <input type="file" id="pick" multiple accept=".jpg,.jpeg,.png,.bmp,.webp,image/*" hidden>
+        <input type="file" id="pickdir" webkitdirectory multiple hidden>
+        <div class="row" style="margin-top:10px">
+          <button class="btn" id="btn-files" type="button">Choose files</button>
+          <button class="btn" id="btn-dir" type="button">Choose folder</button>
+          <button class="btn" id="btn-clearsel" type="button" hidden>Clear selection</button>
+        </div>
+        <div class="sel" id="sel">No images selected.</div>
+        <div class="thumbs" id="thumbs"></div>
+
+        <div class="slider">
+          <label for="conf"><span>Detection confidence</span><output id="conf-v">0.25</output></label>
+          <input type="range" id="conf" min="0.05" max="0.9" step="0.05" value="0.25">
+        </div>
+        <div class="slider">
+          <label for="accept"><span>Mark SUCCESS when average character confidence is at least</span><output
+              id="accept-v">85%</output></label>
+          <input type="range" id="accept" min="0.5" max="0.99" step="0.01" value="0.85">
+        </div>
+        <div class="slider">
+          <label for="weakest"><span>…and every single character is at least</span><output
+              id="weakest-v">80%</output></label>
+          <input type="range" id="weakest" min="0.3" max="0.99" step="0.01" value="0.8">
+        </div>
+        <label class="check"><input type="checkbox" id="cropmode">
+          <span>Images are already plate crops (skip YOLO detection and read the whole image)</span></label>
+        <button class="btn primary" id="go" type="button" disabled>Detect and read</button>
+
+        <div class="progress" id="progress">
+          <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar">
+            <div></div>
+          </div>
+          <div class="ptext" aria-live="polite">
+            <span id="ptext">Uploading…</span>
+            <span><span id="peta"></span> <a class="link" id="cancel" tabindex="0" role="button">Cancel</a></span>
+          </div>
+          <div class="ptext"><span class="cur" id="pcur"></span></div>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="h-sum">
+        <div class="row" style="justify-content:space-between">
+          <h2 id="h-sum" style="margin:0">Overall result</h2>
+          <div class="tabs" role="tablist">
+            <button role="tab" id="tab-batch" aria-selected="false" type="button">This upload</button>
+            <button role="tab" id="tab-all" aria-selected="true" type="button">All uploads</button>
+          </div>
+        </div>
+        <div class="cards">
+          <div class="card overall">
+            <div>
+              <div class="k">Success rate</div>
+              <div class="v" id="s-overall">–</div>
+            </div>
+            <div class="meter">
+              <div class="bar">
+                <div id="s-meter"></div>
+              </div>
+              <small id="s-rate">Share of plates found that are SUCCESS or manually verified.</small>
+            </div>
+          </div>
+          <div class="card">
+            <div class="k">Images</div>
+            <div class="v" id="s-images">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Plates found</div>
+            <div class="v" id="s-plates">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Success</div>
+            <div class="v" id="s-success" style="color:var(--green)">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Needs review</div>
+            <div class="v" id="s-review" style="color:var(--amber)">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Rejected</div>
+            <div class="v" id="s-reject" style="color:var(--red)">0</div>
+          </div>
+          <div class="card">
+            <div class="k">No plate</div>
+            <div class="v" id="s-noplate" style="color:var(--muted)">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Manual review pending</div>
+            <div class="v" id="s-pending" style="color:var(--amber)">0</div>
+          </div>
+          <div class="card">
+            <div class="k">Corrected / confirmed</div>
+            <div class="v" id="s-corrected" style="color:var(--accent)">0</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="panel" aria-labelledby="h-tune">
+      <div class="row" style="justify-content:space-between;flex-wrap:wrap;gap:8px">
+        <h2 id="h-tune" style="margin:0">Improve the OCR model</h2>
+        <button class="btn primary" id="tune-go" type="button">Fine-tune on verified plates</button>
+      </div>
+      <p class="sub" id="tune-info" style="margin:8px 0 0">Every plate you correct or confirm in the details view becomes training data.</p>
+      <p id="tune-result" style="margin:8px 0 0"></p>
+      <pre class="tune-log" id="tune-log" hidden></pre>
+    </section>
+
+    <section class="panel" aria-labelledby="h-tab">
+      <h2 id="h-tab">Results</h2>
+      <div class="toolbar">
+        <label class="sub">Show
+          <select id="limit">
+            <option>10</option>
+            <option selected>25</option>
+            <option>50</option>
+            <option>100</option>
+            <option>150</option>
+          </select>
+          entries</label>
+        <div class="pills" role="group" aria-label="Filter by status">
+          <button class="pill" data-s="" aria-pressed="true" type="button">All</button>
+          <button class="pill" data-s="SUCCESS" aria-pressed="false" type="button">Success</button>
+          <button class="pill" data-s="REVIEW" aria-pressed="false" type="button">Review</button>
+          <button class="pill" data-s="REJECT" aria-pressed="false" type="button">Reject</button>
+          <button class="pill" data-s="NO PLATE" aria-pressed="false" type="button">No plate</button>
+          <button class="pill" data-s="CORRECTED" aria-pressed="false" type="button">Corrected</button>
+        </div>
+        <input type="search" id="q" placeholder="Search plate, file, status, date…" aria-label="Search">
+        <button class="btn primary" id="export" type="button">Export to Excel</button>
+        <button class="btn danger" id="clear" type="button">Clear history</button>
+      </div>
+      <div class="tablewrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date / Time</th>
+              <th>Image</th>
+              <th>Plate</th>
+              <th>Extracted text</th>
+              <th>Confidence</th>
+              <th>Status</th>
+              <th>File name</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+      <div class="pager"><span id="showing">Showing 0 to 0 of 0 entries</span>
+        <div class="btns" id="pages"></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+    <div class="box">
+      <div class="row" style="justify-content:space-between;margin-bottom:12px">
+        <h2 id="m-title" style="margin:0">Details</h2>
+        <button class="btn" id="m-close" type="button" aria-label="Close">Close (Esc)</button>
+      </div>
+      <div class="imgs3">
+        <figure>
+          <figcaption>Original image (plate boxed)</figcaption><img id="m-img" alt="Vehicle image with the plate boxed">
+        </figure>
+        <div class="side">
+          <figure>
+            <figcaption id="m-crop-cap">YOLO detected plate</figcaption><img id="m-crop" alt="Detected plate crop">
+          </figure>
+          <figure>
+            <figcaption id="m-enh-cap">Enhanced crop used for the reading</figcaption><img id="m-enh"
+              alt="Enhanced plate crop">
+          </figure>
+        </div>
+      </div>
+      <dl id="m-dl"></dl>
+      <div class="sec" id="m-ocr">
+        <h3>OCR</h3>
+        <dl id="m-ocr-dl"></dl>
+        <div class="sub" style="margin-top:8px">Character confidence (OCR model probability for each character)</div>
+        <div class="chars" id="m-chars"></div>
+      </div>
+      <div class="sec">
+        <h3>Registration format validation</h3>
+        <dl id="m-val-dl"></dl>
+        <div class="reasons" id="m-reasons" style="margin-top:8px"></div>
+      </div>
+      <div class="sec">
+        <h3>Manual verification</h3>
+        <div class="form">
+          <input id="rv-text" placeholder="Correct registration, e.g. TN01AW5679"
+            aria-label="Corrected registration number" autocomplete="off">
+          <input id="rv-reason" placeholder="Reason (e.g. 8 misread as B)" aria-label="Correction reason">
+          <input id="rv-reviewer" placeholder="Reviewer name" aria-label="Reviewer">
+        </div>
+        <div class="row" style="margin-top:8px">
+          <button class="btn primary" id="rv-save" type="button">Save correction</button>
+          <button class="btn" id="rv-confirm" type="button">Confirm OCR text is correct</button>
+          <span class="sub">The original OCR result is never overwritten.</span>
+        </div>
+        <ol class="audit" id="m-audit"></ol>
+      </div>
+    </div>
+  </div>
+  <div class="toasts" id="toasts" aria-live="assertive"></div>
+  <span class="sr" id="sr" aria-live="polite"></span>
+
+  <script>
+    (() => {
+      "use strict";
+      const $ = id => document.getElementById(id);
+      const EXT = /\.(jpe?g|png|bmp|webp)$/i;
+      let MAX = 500;
+      let selected = [];
+      let thumbURLs = [];
+      const view = { tab: "all", batch: null, status: "", q: "", limit: 25, page: 0 };
+      let job = null, pollTimer = null, lastDone = -1;
+
+      /* ---------- helpers ---------- */
+      function el(tag, props, ...kids) {
+        const n = document.createElement(tag);
+        if (props) for (const [k, v] of Object.entries(props)) {
+          if (k === "class") n.className = v;
+          else if (k === "text") n.textContent = v;
+          else if (k.startsWith("on")) n.addEventListener(k.slice(2), v);
+          else n.setAttribute(k, v);
+        }
+        for (const c of kids) if (c != null) n.append(c);
+        return n;
+      }
+      function toast(msg, kind) {
+        const t = el("div", { class: "toast" + (kind ? " " + kind : ""), text: msg });
+        $("toasts").append(t);
+        setTimeout(() => t.remove(), kind === "err" ? 7000 : 4000);
+      }
+      async function api(path, opts) {
+        let r;
+        try { r = await fetch(path, opts); }
+        catch (e) { throw new Error("Server not reachable. Is server.py still running?"); }
+        let body = null;
+        try { body = await r.json(); } catch (e) { /* not json */ }
+        if (!r.ok) throw new Error((body && body.error) || ("The server answered " + r.status + "."));
+        return body;
+      }
+      const pct = v => (v == null ? "–" : (v * 100).toFixed(1) + "%");
+      const confColor = v => v >= 0.85 ? "var(--green)" : v >= 0.60 ? "var(--amber)" : "var(--red)";
+      function fmtSecs(s) {
+        if (!isFinite(s) || s < 0) return "";
+        s = Math.round(s);
+        return s >= 60 ? Math.floor(s / 60) + " min " + (s % 60) + " s" : s + " s";
+      }
+      function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+
+      /* ---------- theme ---------- */
+      function applyTheme(t) {
+        document.documentElement.dataset.theme = t;
+        $("theme").textContent = t === "light" ? "Dark theme" : "Light theme";
+      }
+      applyTheme(store("pv-theme") === "light" ? "light" : "dark");
+      $("theme").addEventListener("click", () => {
+        const t = document.documentElement.dataset.theme === "light" ? "dark" : "light";
+        applyTheme(t); store("pv-theme", t);
+      });
+
+      /* ---------- selection ---------- */
+      function setSelection(files) {
+        selected = Array.from(files).filter(f => EXT.test(f.name));
+        thumbURLs.forEach(u => URL.revokeObjectURL(u)); thumbURLs = [];
+        const th = $("thumbs"); th.replaceChildren();
+        const n = selected.length;
+        const sel = $("sel"); sel.replaceChildren();
+        if (!n) sel.append("No images selected.");
+        else {
+          sel.append(n + " image" + (n > 1 ? "s" : "") + " selected.");
+          if (n > MAX) sel.append(" ", el("span", {
+            class: "warn",
+            text: "Only the first " + MAX + " will be processed. Upload the other " + (n - MAX) + " as a second batch."
+          }));
+        }
+        const show = selected.slice(0, 15);
+        for (const f of show) {
+          const u = URL.createObjectURL(f); thumbURLs.push(u);
+          th.append(el("img", { src: u, alt: f.name, title: f.name }));
+        }
+        if (n > show.length) th.append(el("div", { class: "more", text: "+" + (n - show.length) + " more" }));
+        $("btn-clearsel").hidden = !n;
+        updateGo();
+      }
+      function updateGo() { $("go").disabled = !selected.length || !!job; }
+      const drop = $("drop");
+      drop.addEventListener("click", () => $("pick").click());
+      drop.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); $("pick").click(); } });
+      ["dragenter", "dragover"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.add("over"); }));
+      ["dragleave", "drop"].forEach(ev => drop.addEventListener(ev, e => { e.preventDefault(); drop.classList.remove("over"); }));
+      drop.addEventListener("drop", e => setSelection(e.dataTransfer.files));
+      $("btn-files").addEventListener("click", () => $("pick").click());
+      $("btn-dir").addEventListener("click", () => $("pickdir").click());
+      $("pick").addEventListener("change", e => { setSelection(e.target.files); e.target.value = ""; });
+      $("pickdir").addEventListener("change", e => { setSelection(e.target.files); e.target.value = ""; });
+      $("btn-clearsel").addEventListener("click", () => setSelection([]));
+      $("conf").addEventListener("input", e => $("conf-v").textContent = Number(e.target.value).toFixed(2));
+      $("accept").addEventListener("input", e => $("accept-v").textContent = Math.round(e.target.value * 100) + "%");
+      $("weakest").addEventListener("input", e => $("weakest-v").textContent = Math.round(e.target.value * 100) + "%");
+
+      /* ---------- upload + job ---------- */
+      function showProgress(on) { $("progress").classList.toggle("on", on); }
+      function setBar(p) {
+        p = Math.max(0, Math.min(100, p));
+        $("pbar").firstElementChild.style.width = p + "%";
+        $("pbar").setAttribute("aria-valuenow", Math.round(p));
+      }
+      $("go").addEventListener("click", () => {
+        if (!selected.length || job) return;
+        const files = selected.slice(0, MAX);
+        const fd = new FormData();
+        files.forEach(f => fd.append("files", f, f.webkitRelativePath ? f.name : f.name));
+        fd.append("conf", $("conf").value);
+        fd.append("accept", $("accept").value);
+        fd.append("weakest", $("weakest").value);
+        fd.append("crop_mode", $("cropmode").checked ? "1" : "0");
+        job = { id: null };
+        updateGo(); showProgress(true); setBar(0);
+        $("ptext").textContent = "Uploading 0%"; $("peta").textContent = ""; $("pcur").textContent = "";
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/api/jobs");
+        xhr.upload.onprogress = e => {
+          if (e.lengthComputable) {
+            const p = 100 * e.loaded / e.total;
+            setBar(p); $("ptext").textContent = "Uploading " + Math.round(p) + "%";
+          }
+        };
+        xhr.onerror = () => { job = null; updateGo(); showProgress(false); toast("Upload failed. Server not reachable.", "err"); };
+        xhr.onload = () => {
+          let body = null; try { body = JSON.parse(xhr.responseText); } catch (e) { /* ignore */ }
+          if (xhr.status !== 202 || !body) {
+            job = null; updateGo(); showProgress(false);
+            toast((body && body.error) || "Upload failed (" + xhr.status + ").", "err"); return;
+          }
+          if (body.skipped) toast(body.skipped + " images were over the limit and were not processed.", "warn");
+          startJob(body.id, body.batch, body.total);
+          setSelection([]);
+        };
+        xhr.send(fd);
+      });
+      function startJob(id, batch, total) {
+        job = { id, batch, total };
+        view.batch = batch; setTab("batch");
+        lastDone = -1; setBar(0); showProgress(true); updateGo();
+        $("ptext").textContent = "Reading 0 of " + total;
+        poll();
+      }
+      async function poll() {
+        clearTimeout(pollTimer);
+        if (!job || !job.id) return;
+        let j;
+        try { j = await api("/api/jobs/" + job.id); }
+        catch (e) { toast(e.message, "err"); pollTimer = setTimeout(poll, 3000); return; }
+        setBar(100 * j.done / Math.max(1, j.total));
+        $("ptext").textContent = j.status === "running"
+          ? "Reading " + Math.min(j.done + 1, j.total) + " of " + j.total
+          : (j.status === "cancelled" ? "Cancelled after " : "Finished ") + j.done + " of " + j.total;
+        $("pcur").textContent = j.current ? "Current file: " + j.current : "";
+        $("peta").textContent = (j.status === "running" && j.done > 0)
+          ? "about " + fmtSecs(j.elapsed / j.done * (j.total - j.done)) + " left ·" : "";
+        if (j.done !== lastDone) { lastDone = j.done; refresh(); }
+        if (j.status === "running") { pollTimer = setTimeout(poll, 700); return; }
+        // finished
+        $("cancel").style.display = "none";
+        const s = j.summary;
+        toast((j.status === "cancelled" ? "Cancelled. " : "Done. ") + j.done + " images in " + fmtSecs(j.elapsed) +
+          ": " + s.success + " success, " + s.review + " review, " + (s.reject || 0) + " rejected, " + s.no_plate + " no plate.");
+        j.errors.slice(0, 3).forEach(m => toast(m, "warn"));
+        if (j.errors.length > 3) toast((j.errors.length - 3) + " more images could not be read.", "warn");
+        $("sr").textContent = "Processing finished.";
+        job = null; updateGo(); refresh();
+        setTimeout(() => { if (!job) showProgress(false); $("cancel").style.display = ""; }, 4000);
+      }
+      function doCancel() {
+        if (!job || !job.id) return;
+        api("/api/jobs/" + job.id + "/cancel", { method: "POST" })
+          .then(() => toast("Stopping after the current image…"))
+          .catch(e => toast(e.message, "err"));
+      }
+      $("cancel").addEventListener("click", doCancel);
+      $("cancel").addEventListener("keydown", e => { if (e.key === "Enter") doCancel(); });
+
+      /* ---------- tabs / filters ---------- */
+      function setTab(t) {
+        if (t === "batch" && !view.batch) { toast("Upload images first to see this upload.", "warn"); return; }
+        view.tab = t; view.page = 0;
+        $("tab-batch").setAttribute("aria-selected", t === "batch");
+        $("tab-all").setAttribute("aria-selected", t === "all");
+        refresh();
+      }
+      $("tab-batch").addEventListener("click", () => setTab("batch"));
+      $("tab-all").addEventListener("click", () => setTab("all"));
+      document.querySelectorAll(".pill").forEach(p => p.addEventListener("click", () => {
+        document.querySelectorAll(".pill").forEach(x => x.setAttribute("aria-pressed", x === p));
+        view.status = p.dataset.s; view.page = 0; refresh();
+      }));
+      let qTimer;
+      $("q").addEventListener("input", e => { clearTimeout(qTimer); qTimer = setTimeout(() => { view.q = e.target.value; view.page = 0; refresh(); }, 250); });
+      $("limit").addEventListener("change", e => { view.limit = +e.target.value; view.page = 0; refresh(); });
+
+      function params(withPage) {
+        const p = new URLSearchParams();
+        if (view.q) p.set("q", view.q);
+        if (view.status) p.set("status", view.status);
+        if (view.tab === "batch" && view.batch) p.set("batch", view.batch);
+        if (withPage) { p.set("limit", view.limit); p.set("offset", view.page * view.limit); }
+        return p.toString();
+      }
+
+      /* ---------- table + summary ---------- */
+      let refreshing = false, again = false;
+      async function refresh() {
+        if (refreshing) { again = true; return; }
+        refreshing = true;
+        try {
+          const d = await api("/api/results?" + params(true));
+          if (d.rows.length === 0 && d.total > 0 && view.page > 0) {
+            view.page = Math.floor((d.total - 1) / view.limit); refreshing = false; return refresh();
+          }
+          renderSummary(d.summary); renderRows(d.rows); renderPager(d.total);
+        } catch (e) { toast(e.message, "err"); }
+        refreshing = false;
+        if (again) { again = false; refresh(); }
+      }
+      function renderSummary(s) {
+        const rate = s.verified_rate ?? s.success_rate;
+        $("s-overall").textContent = rate == null ? "–" : (rate * 100).toFixed(1) + "%";
+        $("s-overall").style.color = rate == null ? "" : confColor(rate);
+        $("s-meter").style.width = rate == null ? "0" : (rate * 100) + "%";
+        $("s-images").textContent = s.images;
+        $("s-plates").textContent = s.plates;
+        $("s-success").textContent = s.success;
+        $("s-review").textContent = s.review;
+        $("s-noplate").textContent = s.no_plate;
+        $("s-reject").textContent = s.reject ?? 0;
+        $("s-pending").textContent = s.manual_review_pending ?? 0;
+        $("s-corrected").textContent = s.corrected ?? 0;
+        const manual = (s.verified ?? s.success) - s.success;
+        $("s-rate").textContent = s.plates
+          ? s.success + " automatic SUCCESS" + (manual ? " + " + manual + " manually verified" : "") +
+            " of " + s.plates + " plates found · mean OCR confidence " +
+            (s.overall == null ? "–" : (s.overall * 100).toFixed(1) + "%") + "."
+          : "Share of plates found that are SUCCESS or manually verified.";
+      }
+      function renderRows(rows) {
+        const tb = $("rows"); tb.replaceChildren();
+        if (!rows.length) {
+          tb.append(el("tr", { class: "empty-row" }, el("td", { colspan: "7", text: "No results to show. Upload images to begin." })));
+          return;
+        }
+        for (const r of rows) {
+          const found = r.status !== "NO PLATE";
+          const c = parseFloat(r.ocr_conf);
+          const corrected = r.manually_corrected_text || "";
+          const legacyRow = !r.manual_review_status && !r.final_registration_number && !r.raw_ocr_text;
+          let chipText = "—", chipCls = "plate empty", copyable = "";
+          if (corrected) { chipText = corrected; chipCls = "plate"; copyable = corrected; }
+          else if (r.status === "SUCCESS") { chipText = r.final_registration_number || r.plate_text; chipCls = "plate"; copyable = chipText; }
+          else if (r.status === "REVIEW") { chipText = r.plate_text || "?"; chipCls = legacyRow ? "plate" : "plate suggest"; copyable = r.plate_text; }
+          else if (r.status === "REJECT") { chipText = r.plate_text || "?"; chipCls = "plate rejected"; }
+          const chip = el("span", { class: chipCls, text: chipText });
+          if (r.status === "REVIEW" && !corrected && !legacyRow) chip.title = "Suggestion only: MANUAL_REVIEW_REQUIRED";
+          if (r.status === "REJECT") chip.title = "Not accepted as a registration number";
+          if (copyable) {
+            chip.title = (chip.title ? chip.title + " · " : "") + "Click to copy"; chip.tabIndex = 0; chip.setAttribute("role", "button");
+            const copy = e => { e.stopPropagation(); copyText(copyable); };
+            chip.addEventListener("click", copy);
+            chip.addEventListener("keydown", e => { if (e.key === "Enter") copy(e); });
+          }
+          const confCell = found
+            ? el("td", { class: "conf" }, el("span", { class: "n", text: pct(c) }),
+              (() => {
+                const b = el("div", { class: "bar" }, el("div")); b.firstChild.style.width = (c * 100) + "%";
+                b.firstChild.style.background = confColor(c); return b;
+              })())
+            : el("td", { class: "conf sub", text: "–" });
+          const tr = el("tr", { tabindex: "0" },
+            el("td", { class: "time", text: r.time }),
+            el("td", null, r.thumb_file ? el("img", { class: "veh", src: "/files/thumbs/" + encodeURIComponent(r.thumb_file), alt: "Vehicle", loading: "lazy" }) : null),
+            el("td", null, r.crop_file ? el("img", { class: "crop", src: "/files/crops/" + encodeURIComponent(r.crop_file), alt: "Plate crop", loading: "lazy" }) : el("span", { class: "sub", text: "—" })),
+            el("td", null, chip,
+              corrected ? el("span", { class: "tag edit", text: r.manual_review_status === "CONFIRMED" ? "CONFIRMED" : "EDITED" }) :
+                (r.manual_review_status === "MANUAL_REVIEW_REQUIRED" ? el("span", { class: "tag mr", text: "REVIEW", title: "MANUAL_REVIEW_REQUIRED" }) : null)),
+            confCell,
+            el("td", null, corrected && r.status !== "NO PLATE"
+              ? el("span", { class: "badge b-VERIFIED", text: "✓ VERIFIED", title: "Verified by a person in manual review (OCR status was " + r.status + ")" })
+              : el("span", { class: "badge b-" + r.status.split(" ")[0], text: r.status })),
+            el("td", { class: "file", text: r.source, title: r.source }));
+          tr.addEventListener("click", () => openModal(r));
+          tr.addEventListener("keydown", e => { if (e.key === "Enter") openModal(r); });
+          tb.append(tr);
+        }
+      }
+      function renderPager(total) {
+        const from = total ? view.page * view.limit + 1 : 0;
+        const to = Math.min(total, (view.page + 1) * view.limit);
+        $("showing").textContent = "Showing " + from + " to " + to + " of " + total + " entries";
+        const pages = Math.max(1, Math.ceil(total / view.limit));
+        const box = $("pages"); box.replaceChildren();
+        const go = p => () => { view.page = p; refresh(); };
+        const add = (label, p, dis, cur) => {
+          const b = el("button", { class: "btn", type: "button", text: label });
+          if (dis) b.disabled = true; else b.addEventListener("click", go(p));
+          if (cur) b.setAttribute("aria-current", "true");
+          box.append(b);
+        };
+        add("Previous", view.page - 1, view.page === 0);
+        const s = Math.max(0, Math.min(view.page - 2, pages - 5));
+        for (let i = s; i < Math.min(pages, s + 5); i++) add(String(i + 1), i, false, i === view.page);
+        add("Next", view.page + 1, view.page >= pages - 1);
+      }
+      function copyText(t) {
+        const done = () => toast("Copied " + t);
+        if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(t).then(done, () => fallback());
+        else fallback();
+        function fallback() {
+          const ta = el("textarea"); ta.value = t; document.body.append(ta); ta.select();
+          try { document.execCommand("copy"); done(); } catch (e) { toast("Could not copy.", "err"); }
+          ta.remove();
+        }
+      }
+
+      /* ---------- modal ---------- */
+      let lastFocus = null, current = null;
+      const REASON_TEXT = {
+        LOW_AVERAGE_CONFIDENCE: "Average confidence below threshold", UNCERTAIN_CHARACTER: "A character is uncertain",
+        CHARACTERS_SUBSTITUTED_FROM_MODEL_ALTERNATIVES: "Characters were swapped to fit the format (suggestion only)",
+        CONFLICTING_READINGS: "Different crops gave different confident readings", LOW_DETECTION_CONFIDENCE: "Weak plate detection",
+        UNUSUAL_PLATE_SHAPE: "Box shape unlike a plate", POOR_IMAGE_QUALITY: "Crop too small or flat to read",
+        SERIES_HAS_I_OR_O: "Series contains I or O (not used in series letters)", NO_SERIES_LETTERS: "No series letters (a letter may be missing)",
+        EXTRACTED_FROM_LONGER_TEXT: "Plate found inside longer text", LEGACY_STATE_CODE: "Old state code",
+        PARTIAL_OR_INVALID_PLATE_TEXT: "Plate-like text but not a complete registration", NOT_A_REGISTRATION_NUMBER: "Text is not a registration number",
+        UNUSABLE_CROP: "Crop unusable", ML_VERIFIER_LOW_PROBABILITY: "ML verifier: probability of a correct read too low"
+      };
+      function fill(dlEl, pairs) {
+        dlEl.replaceChildren();
+        pairs.forEach(([k, v]) => dlEl.append(el("dt", { text: k }), el("dd", { text: (v === "" || v == null) ? "–" : String(v) })));
+      }
+      function setImg(img, kind, name) {
+        const fig = img.closest("figure");
+        if (name) { img.src = "/files/" + kind + "/" + encodeURIComponent(name); fig.hidden = false; }
+        else { img.removeAttribute("src"); fig.hidden = true; }
+      }
+      function openModal(r) {
+        current = r;
+        if (!$("modal").classList.contains("on")) lastFocus = document.activeElement;
+        const found = r.status !== "NO PLATE";
+        setImg($("m-img"), "annotated", r.thumb_file);
+        setImg($("m-crop"), "crops", r.crop_file);
+        $("m-crop-cap").textContent = (r.raw_ocr_text && !r.det_conf) ? "Plate crop (detection skipped)" : "YOLO detected plate";
+        setImg($("m-enh"), "enhanced", r.enhanced_file);
+        $("m-enh-cap").textContent = "Enhanced crop used for the reading" + (r.preprocessing_method ? " (" + r.preprocessing_method + ")" : "");
+        fill($("m-dl"), [["File", r.source], ["Date / Time", r.time],
+        ["Detection", !found ? "No plate detected" : (r.det_conf ? "SUCCESS (YOLO11)" : "Skipped (plate-crop mode)")],
+        ["Status", r.manually_corrected_text ? "✓ VERIFIED by reviewer (OCR status: " + r.status + ")" : r.status],
+        ["Manual review", r.manual_review_status], ["Upload batch", r.batch],
+        ["Duplicate of", r.duplicate_of]].filter(([k, v]) => k !== "Duplicate of" || v));
+        fill($("m-ocr-dl"), [["OCR engine", r.ocr_engine || (found ? "PARSeq (earlier result)" : "")],
+        ["OCR status", r.ocr_status], ["Raw OCR output", r.raw_ocr_text], ["Normalized OCR", r.normalized_ocr_text],
+        ["Suggested / read text", found ? r.plate_text : ""],
+        ["Final registration number", r.manually_corrected_text || r.final_registration_number || (r.status === "REVIEW" || r.status === "REJECT" ? "MANUAL_REVIEW_REQUIRED" : "")],
+        ["Manually corrected", r.manually_corrected_text],
+        ["ML verifier: P(correct)", r.ml_probability ? pct(parseFloat(r.ml_probability)) : (found && r.raw_ocr_text ? "not applicable (hard rule decided)" : "")],
+        ["Rule-only status", r.rule_status && r.rule_status !== r.status ? r.rule_status : ""],
+        ["Review resolver: P(correct)", r.resolver_probability ? pct(parseFloat(r.resolver_probability)) + (r.resolved_by ? " → promoted to SUCCESS" : " → kept for review") : ""],
+        ["Resolved by", r.resolved_by ? r.resolved_by.replace("REVIEW_RESOLVER", "Second layer (Awiros vote + PARSeq cross-check + ML)") : ""],
+        ["Average confidence", found ? pct(parseFloat(r.ocr_conf)) : ""],
+        ["Weakest character", found ? pct(parseFloat(r.weakest)) : ""],
+        ["Detection confidence", r.det_conf ? pct(parseFloat(r.det_conf)) : (found ? "n/a (plate-crop mode)" : "")],
+        ["OCR attempts / retries", r.ocr_attempts ? r.ocr_attempts + " / " + (r.retry_count || 0) : ""],
+        ["OCR processing time", r.ocr_time_ms ? r.ocr_time_ms + " ms" : (r.duplicate_of ? "reused (duplicate file)" : "")],
+        ["Total time for this image", r.processing_seconds ? r.processing_seconds + " s" : ""],
+        ["Image quality", r.image_quality],
+        ["Preprocessing", r.preprocessing_method], ["Image quality flags", (r.quality_flags || "").split("|").filter(Boolean).join(", ")],
+        ["Characters swapped", (r.substitutions || "").split("|").filter(Boolean).map(x => { const [pos, ch, p] = x.split(":"); return "pos " + (+pos + 1) + " " + ch + " (p=" + p + ")"; }).join(", ")],
+        ["Other candidates", (r.candidates || "").split("|").filter(Boolean).slice(1).map(x => x.split(":")[0]).join(", ")]]
+    .filter(([k, v]) => !["Rule-only status", "Review resolver: P(correct)", "Resolved by"].includes(k) || v));
+        const chars = $("m-chars"); chars.replaceChildren();
+        (r.char_confidences || "").split("|").filter(Boolean).forEach(x => {
+          const [c, p] = x.split(":"); const v = parseFloat(p);
+          const span = el("span", { title: c + " " + (v * 100).toFixed(1) + "%" }, c, el("small", { text: Math.round(v * 100) + "%" }));
+          span.style.borderColor = confColor(v); span.style.background = "color-mix(in srgb, " + confColor(v) + " 14%, transparent)";
+          chars.append(span);
+        });
+        if (!chars.childNodes.length) chars.append(el("span", { class: "sub", text: "Not available for this row" }));
+        fill($("m-val-dl"), [["Format check", r.format_validation_status], ["State / UT code", r.state_code ? r.state_code + (r.state_name ? " · " + r.state_name : "") : ""],
+        ["RTO code", r.rto_code], ["Series", r.registration_series], ["Number", r.registration_digits]]);
+        const rs = $("m-reasons"); rs.replaceChildren();
+        (r.review_reasons || "").split("|").filter(Boolean).forEach(x => rs.append(el("span", { text: REASON_TEXT[x] || x, title: x })));
+        if (!rs.childNodes.length && r.status === "SUCCESS") rs.append(el("span", { text: "All checks passed" }));
+        $("rv-text").value = r.manually_corrected_text || (found ? r.plate_text : "");
+        $("rv-reason").value = "";
+        $("rv-reviewer").value = store("pv-reviewer") || "";
+        $("rv-confirm").hidden = !(found && r.plate_text && r.status !== "REJECT");
+        loadAudit(r.row_id);
+        $("modal").classList.add("on");
+        $("m-close").focus();
+      }
+      async function loadAudit(id) {
+        const ol = $("m-audit"); ol.replaceChildren();
+        if (!id) return;
+        try {
+          const d = await api("/api/results/" + encodeURIComponent(id) + "/audit");
+          d.history.forEach(h => ol.append(el("li", {
+            text: h.time + " · " + h.action + " " + (h.ocr_text || "–") + " → " + h.corrected_text +
+              (h.reviewer ? " · by " + h.reviewer : "") + (h.reason ? " · " + h.reason : "")
+          })));
+        } catch (e) { /* audit is optional */ }
+      }
+      async function submitReview(text) {
+        if (!current || !current.row_id) { toast("This older row has no id; re-run it to review.", "warn"); return; }
+        const reviewer = $("rv-reviewer").value.trim(); store("pv-reviewer", reviewer);
+        try {
+          const d = await api("/api/results/" + encodeURIComponent(current.row_id) + "/review", {
+            method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ corrected_text: text, reason: $("rv-reason").value.trim(), reviewer })
+          });
+          toast("Saved " + d.row.manually_corrected_text + " (" + d.row.manual_review_status.toLowerCase() + ").");
+          current = d.row; openModal(Object.assign({}, d.row, { state_name: current.state_name })); refresh(); tuneStatus();
+        } catch (e) { toast(e.message, "err"); }
+      }
+      $("rv-save").addEventListener("click", () => submitReview($("rv-text").value));
+      $("rv-confirm").addEventListener("click", () => submitReview(current ? current.plate_text : ""));
+      function closeModal() { $("modal").classList.remove("on"); current = null; if (lastFocus) lastFocus.focus(); }
+      $("m-close").addEventListener("click", closeModal);
+      $("modal").addEventListener("click", e => { if (e.target === $("modal")) closeModal(); });
+      document.addEventListener("keydown", e => { if (e.key === "Escape" && $("modal").classList.contains("on")) closeModal(); });
+
+      /* ---------- fine-tuning ---------- */
+      let tuneTimer = null;
+      async function tuneStatus() {
+        let d;
+        try { d = await api("/api/finetune"); } catch (e) { return; }
+        const rep = d.report, w = (d.weights || "").split(/[\\/]/).slice(-2).join("/");
+        $("tune-info").textContent = d.samples + " verified plates available (need " + d.min_samples + ")" +
+          " · training device: " + d.device.toUpperCase() + (d.device === "cpu" ? " (very slow; use the GPU PC)" : "") +
+          " · current model: " + (w.includes("awiros_finetuned") ? "fine-tuned" : "original Awiros") +
+          (rep && rep.original ? " · last run: held-out " + pct(rep.original.exact) + " → " + pct(rep.best && rep.best.val_exact) + (rep.deployed ? " (installed)" : " (not installed)") : "");
+        $("tune-go").disabled = d.running || d.samples < d.min_samples;
+        $("tune-go").textContent = d.running ? "Fine-tuning…" : "Fine-tune on verified plates";
+        $("tune-result").textContent = d.result || "";
+        $("tune-log").hidden = !d.running && !d.result;
+        $("tune-log").textContent = (d.log || []).join("\n");
+        clearTimeout(tuneTimer);
+        if (d.running) tuneTimer = setTimeout(tuneStatus, 5000);
+      }
+      async function tuneStart(force) {
+        try {
+          const d = await api("/api/finetune", { method: "POST", headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ epochs: 30, force_cpu: !!force }) });
+          toast("Fine-tuning started on " + d.samples + " verified plates.");
+        } catch (e) {
+          if (/No GPU/.test(e.message) && !force) {
+            if (confirm(e.message + "\n\nStart on CPU anyway?")) return tuneStart(true);
+          } else toast(e.message, "err");
+        }
+        tuneStatus();
+      }
+      $("tune-go").addEventListener("click", () => tuneStart(false));
+      tuneStatus();
+
+      /* ---------- export / clear ---------- */
+      $("export").addEventListener("click", () => {
+        const a = el("a", { href: "/api/export?" + params(false), download: "" });
+        document.body.append(a); a.click(); a.remove();
+        toast("Preparing the Excel file…");
+      });
+      $("clear").addEventListener("click", async () => {
+        if (!confirm("Delete all saved results and images? This cannot be undone.")) return;
+        try { await api("/api/results", { method: "DELETE" }); view.batch = null; view.page = 0; setTab("all"); toast("History cleared."); }
+        catch (e) { toast(e.message, "err"); }
+      });
+
+      /* ---------- start ---------- */
+      (async () => {
+        try {
+          const c = await api("/api/config");
+          MAX = c.max_images; $("maxn").textContent = MAX;
+          $("device").textContent = "device: " + c.device;
+          if (c.ml_verifier) {
+            $("mlchip").textContent = "ML verifier: on";
+            $("mlchip").title = "HistGradientBoostingClassifier · accepts at p ≥ " + c.ml_verifier.threshold.toFixed(3) +
+              (c.ml_verifier.trained_at ? " · trained " + c.ml_verifier.trained_at : "");
+          } else { $("mlchip").textContent = "ML verifier: off (rules)"; }
+          $("conf").value = c.defaults.conf; $("conf-v").textContent = Number(c.defaults.conf).toFixed(2);
+          $("accept").value = c.defaults.accept; $("accept-v").textContent = Math.round(c.defaults.accept * 100) + "%";
+          if (c.defaults.weakest != null) { $("weakest").value = c.defaults.weakest; $("weakest-v").textContent = Math.round(c.defaults.weakest * 100) + "%"; }
+          if (c.busy && c.running) {
+            const j = await api("/api/jobs/" + c.running);
+            startJob(j.id, j.batch, j.total);
+          }
+        } catch (e) { toast(e.message, "err"); }
+        refresh();
+      })();
+    })();
+  </script>
+</body>
+
+</html>

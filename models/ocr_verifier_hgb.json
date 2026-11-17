@@ -1,0 +1,313 @@
+{
+  "trained_at": "2026-11-03T18:10:56",
+  "sklearn": "1.9.1",
+  "algorithm": "HistGradientBoostingClassifier",
+  "train_rows": 1059,
+  "positives": 915,
+  "target_precision": 0.96,
+  "threshold_split_model": 0.9940637669297807,
+  "threshold": 0.923160280661708,
+  "min_weakest": 0.3,
+  "test_auc": {
+    "ml_verifier": 0.9197856810063675,
+    "avg_conf_only": 0.7273644975927939,
+    "weakest_char_only": 0.7112905730703525
+  },
+  "test_metrics": {
+    "yolo/clean": {
+      "rules": {
+        "labelled": 128,
+        "exact_text_pct": 52.34,
+        "success_rate_pct": 23.44,
+        "success_precision_pct": 93.33,
+        "false_acceptance_pct": 1.56,
+        "wrong_accepted": 2,
+        "review_pct": 59.38
+      },
+      "ml": {
+        "labelled": 128,
+        "exact_text_pct": 52.34,
+        "success_rate_pct": 21.09,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 61.72
+      }
+    },
+    "yolo/night": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 70.27,
+        "success_rate_pct": 18.92,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 67.57
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 70.27,
+        "success_rate_pct": 29.73,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 56.76
+      }
+    },
+    "yolo/blur": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 67.57,
+        "success_rate_pct": 35.14,
+        "success_precision_pct": 92.31,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 59.46
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 67.57,
+        "success_rate_pct": 29.73,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 64.86
+      }
+    },
+    "yolo/lowres": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 64.86,
+        "success_rate_pct": 27.03,
+        "success_precision_pct": 90.0,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 64.86
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 64.86,
+        "success_rate_pct": 24.32,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 67.57
+      }
+    },
+    "yolo/noise": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 62.16,
+        "success_rate_pct": 32.43,
+        "success_precision_pct": 91.67,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 54.05
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 62.16,
+        "success_rate_pct": 29.73,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 56.76
+      }
+    },
+    "yolo/tilt": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 35.14,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 56.76
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 45.95,
+        "success_precision_pct": 94.12,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 45.95
+      }
+    },
+    "yolo/occlude": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 0.0,
+        "success_rate_pct": 0.0,
+        "success_precision_pct": null,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 64.86
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 0.0,
+        "success_rate_pct": 0.0,
+        "success_precision_pct": null,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 64.86
+      }
+    },
+    "crop/clean": {
+      "rules": {
+        "labelled": 128,
+        "exact_text_pct": 54.69,
+        "success_rate_pct": 26.56,
+        "success_precision_pct": 97.06,
+        "false_acceptance_pct": 0.78,
+        "wrong_accepted": 1,
+        "review_pct": 60.94
+      },
+      "ml": {
+        "labelled": 128,
+        "exact_text_pct": 54.69,
+        "success_rate_pct": 28.91,
+        "success_precision_pct": 97.3,
+        "false_acceptance_pct": 0.78,
+        "wrong_accepted": 1,
+        "review_pct": 58.59
+      }
+    },
+    "crop/night": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 70.27,
+        "success_rate_pct": 24.32,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 70.27
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 70.27,
+        "success_rate_pct": 35.14,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 59.46
+      }
+    },
+    "crop/blur": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 37.84,
+        "success_precision_pct": 92.86,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 54.05
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 37.84,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 54.05
+      }
+    },
+    "crop/lowres": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 35.14,
+        "success_precision_pct": 92.31,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 56.76
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 75.68,
+        "success_rate_pct": 40.54,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 51.35
+      }
+    },
+    "crop/noise": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 72.97,
+        "success_rate_pct": 35.14,
+        "success_precision_pct": 92.31,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 56.76
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 72.97,
+        "success_rate_pct": 40.54,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 51.35
+      }
+    },
+    "crop/tilt": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 72.97,
+        "success_rate_pct": 32.43,
+        "success_precision_pct": 100.0,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 56.76
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 72.97,
+        "success_rate_pct": 45.95,
+        "success_precision_pct": 94.12,
+        "false_acceptance_pct": 2.7,
+        "wrong_accepted": 1,
+        "review_pct": 43.24
+      }
+    },
+    "crop/occlude": {
+      "rules": {
+        "labelled": 37,
+        "exact_text_pct": 0.0,
+        "success_rate_pct": 0.0,
+        "success_precision_pct": null,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 32.43
+      },
+      "ml": {
+        "labelled": 37,
+        "exact_text_pct": 0.0,
+        "success_rate_pct": 0.0,
+        "success_precision_pct": null,
+        "false_acceptance_pct": 0.0,
+        "wrong_accepted": 0,
+        "review_pct": 32.43
+      }
+    }
+  },
+  "permutation_importance_auc": {
+    "runner_up_avg": 0.0674,
+    "w_no_series": 0.0198,
+    "mean_p": 0.0152,
+    "q_std": 0.0089,
+    "w_extracted": 0.0073,
+    "agreement": 0.0045,
+    "direct_support": 0.0043,
+    "ocr_attempts": 0.004,
+    "det_conf": 0.0029,
+    "q_sharpness": 0.0023,
+    "q_mean": 0.0022,
+    "corrected_support": 0.0021
+  },
+  "note": "Labels came from the manifests and are not human-audited; metrics measure agreement with them."
+}

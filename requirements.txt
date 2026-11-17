@@ -1,0 +1,17 @@
+# PlateVision: YOLO11 detection (torch) + Awiros ANPR OCR (PaddlePaddle)
+ultralytics>=8.3
+torch
+torchvision
+pillow
+opencv-python
+numpy
+flask
+openpyxl
+scikit-learn
+joblib
+# Awiros ANPR OCR. On a CUDA PC install paddlepaddle-gpu instead of paddlepaddle (see README).
+paddlepaddle>=3.0
+safetensors>=0.4.0
+pyyaml
+# The model is built with PaddleOCR's ppocr package (not on PyPI as such):
+#   git clone --depth 1 https://github.com/PaddlePaddle/PaddleOCR.git <AWIROS_DIR>/PaddleOCR

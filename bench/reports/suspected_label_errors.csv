@@ -1,0 +1,8 @@
+split,image,audited_label,awiros_reading,awiros_avg_conf,note
+val,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380398__plate__day__bike__correct__ab7e6cd5.jpg,PY01CY7642,PY01CM1918,0.999,confident reading differs in >=3 characters: please re-check the label against the image
+calib,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377087__plate__day__bike__correct__db2821ef.jpg,PY01DC4523,KA01C4573,0.991,confident reading differs in >=3 characters: please re-check the label against the image
+calib,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/379215__plate__night__bike__correct__7f3513b8.jpg,TN19BF9257,MH09BF9257,0.981,confident reading differs in >=3 characters: please re-check the label against the image
+calib,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/380191__plate__day__bike__correct__6226366d.jpg,PY01CH7182,PY01BF4088,0.981,confident reading differs in >=3 characters: please re-check the label against the image
+test,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/377040__plate__day__bike__correct__fc13d44c.jpg,PY01DF5367,PY05H0425,0.99,confident reading differs in >=3 characters: please re-check the label against the image
+test,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/378808__plate__night__bike__correct__935b6b7a.jpg,PY01CR1476,PY05E5875,0.999,confident reading differs in >=3 characters: please re-check the label against the image
+test,/home/naumaan/Downloads/traxflow_local_images_2026-11-10/images/IOCL-001/386563__plate__day__car__correct__90e306ac.jpg,PY01BS3628,TN09DA3638,1.0,confident reading differs in >=3 characters: please re-check the label against the image

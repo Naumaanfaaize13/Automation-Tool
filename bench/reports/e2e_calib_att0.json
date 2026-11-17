@@ -1,0 +1,55 @@
+{
+  "all_images": {
+    "n": 74,
+    "exact": 54,
+    "exact_pct": 72.97,
+    "cer_pct": 5.14,
+    "char_acc_pct": 94.86,
+    "auto_success": 63,
+    "auto_precision_pct": 84.13,
+    "coverage_pct": 85.14,
+    "false_acceptance": 10,
+    "false_acceptance_pct": 13.51,
+    "manual_review_pct": 14.86,
+    "false_rejection": 1,
+    "false_rejection_pct_of_correct": 1.85
+  },
+  "without_confirmed_label_mismatches": {
+    "n": 72,
+    "exact": 54,
+    "exact_pct": 75.0,
+    "cer_pct": 4.29,
+    "char_acc_pct": 95.71,
+    "auto_success": 62,
+    "auto_precision_pct": 85.48,
+    "coverage_pct": 86.11,
+    "false_acceptance": 9,
+    "false_acceptance_pct": 12.5,
+    "manual_review_pct": 13.89,
+    "false_rejection": 1,
+    "false_rejection_pct_of_correct": 1.85
+  },
+  "latency_s": {
+    "mean": 0.867,
+    "median": 0.523,
+    "p95": 2.031
+  },
+  "info": {
+    "weights": "/home/naumaan/Documents/Vehicle_Number_Detection/models/awiros_finetuned/model.safetensors",
+    "inference": "static+oneDNN",
+    "hybrid": {
+      "calibrated": true,
+      "auto_min_p": 0.85,
+      "tta_gate": 0.9,
+      "tta_variants": [],
+      "min_char_p": 0.8,
+      "region_check": false,
+      "expected_states": [
+        "PY",
+        "TN"
+      ],
+      "fitted_on": "calib split (training/splits/calib.csv); thresholds on calib+val"
+    },
+    "ml_verifier": true
+  }
+}

@@ -1,0 +1,6 @@
+[
+  {"image": "samples/test_vehicle.jpg", "text": "MH12DE1433", "status": "SUCCESS"},
+  {"image": "samples/plate_crop_1.jpg", "text": "DE1433", "status": "REVIEW"},
+  {"image": "samples/plate_crop_2.jpg", "text": "MH12DE14", "status": "REJECT"},
+  {"image": "samples/plate_crop_3.jpg", "text": "MH12DE1433", "status": "REVIEW"}
+]

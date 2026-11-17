@@ -1,0 +1,5 @@
+# Only for comparing against the old PARSeq engine (scripts/evaluate.py / scripts/benchmark_awiros_vs_parseq.py --engines parseq).
+# Not needed to run the server.
+timm
+pytorch_lightning
+nltk
